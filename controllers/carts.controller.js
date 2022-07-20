@@ -16,7 +16,7 @@ const AddProduct = catchAsync(async (req, res, next) => {
 	const newAdd = await ProductsInCart.create({
 		
         productId,
-         quantity
+        quantity
 		
 	});
 
@@ -31,10 +31,15 @@ const AddProduct = catchAsync(async (req, res, next) => {
 
 
 const Purchase = catchAsync(async (req, res, next) => {
-	const { name } = req.body;
+	const { cardId } = req;
 
-	const purchase = await Carts.create({
-        name
+	const purchase = await ProductsInCart.update({
+        cardId,
+	});
+
+	const cartPurchases = await Carts.findAll({
+		where: { status: 'active' }
+		
 	});
 
 	res.status(200).json({
@@ -45,11 +50,11 @@ const Purchase = catchAsync(async (req, res, next) => {
 
 //-------------------------------------------------------------------//
 
-const updateMeal = catchAsync(async (req, res, next) => {
-	const { meal } = req;
-	const { name, price, } = req.body;
+const updateCart = catchAsync(async (req, res, next) => {
+	const { productsInCart } = req;
+	const { productId,quantity } = req.body;
 
-	await meal.update({ name, price });
+	await productsInCart.update({ productId,quantity });
 
 	res.status(204).json({ status: 'success' });
 });

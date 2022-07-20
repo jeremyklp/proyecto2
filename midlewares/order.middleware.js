@@ -1,6 +1,6 @@
 // Models
-const { Meals } = require('../models/meals.model');
-const { Orders } = require('../models/orders.model');
+const { Products } = require('../models/products.model');
+//const { Orders } = require('../models/orders.model');
 
 // Utils
 const { AppError } = require('../utils/app.error');
@@ -8,7 +8,7 @@ const { catchAsync } = require('../utils/catchAsync');
 
 const totalprice = catchAsync(async (req, res, next) => {
 	const { quantity } = req.body
-	const {price}=  req.meat
+	const {price}=  req.product
 
 
 	const totalprice =  price * quantity
@@ -20,7 +20,7 @@ const totalprice = catchAsync(async (req, res, next) => {
 
 
 
-const meatExist= catchAsync(async (req, res, next) => {
+//const meatExist= catchAsync(async (req, res, next) => {
 	const { mealId } = req.body;
 
 	const meat = await Meals.findOne({ where: { id: mealId } });
