@@ -55,16 +55,17 @@ const updateCart = catchAsync(async (req, res, next) => {
 	const { productId,quantity } = req.body;
 
 	await productsInCart.update({ productId,quantity });
-
+    //Incrementar o decremetar cantidad de prouctos en el carrito
 	res.status(204).json({ status: 'success' });
 });
 
 //-------------------------------------------------------------------//
 
-const deleteMeal = catchAsync(async (req, res, next) => {
-	const { meal } = req;
+const deleteProductCart = catchAsync(async (req, res, next) => {
+	const { productsInCart } = req;
+	const { productId } = req.body;
 
-	await meal.update({ status: 'deleted' });
+	await productsInCart.update({ status: 'deleted' });
 
 	res.status(204).json({ status: 'success' });
 });
