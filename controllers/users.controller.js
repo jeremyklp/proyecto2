@@ -34,7 +34,7 @@ const getAllPurchases = catchAsync(async (req, res, next) => {
 		where: { status: 'active' }
 		
 	});
-
+//hacer relaciones con el include
 	res.status(200).json({
 		status: 'success',
 		data: { users },

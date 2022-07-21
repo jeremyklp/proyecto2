@@ -114,7 +114,24 @@ const ubdateProduct = catchAsync(async(req, res, next)=>{
 	res.status(200).json({
 		status: 'success',
 	});
-})
+});
+
+const disableProduct = catchAsync(async (req, res, next) => {
+	const { id } = req.params;
+
+    const product = await Products.findOne({ where: { id } });
+
+    if (!product) {
+		return res.status(404).json({
+			status: 'error',
+			message: 'User not found',
+		});
+	}
+
+	await product.update({ status: 'Disable' });
+
+	res.status(204).json({ status: 'success' });
+});
 
 //------------------------------------------------------------------//
 
@@ -127,5 +144,6 @@ module.exports = {
     createProduct,
     createCategory,
     updateCategory,
-    ubdateProduct
+    ubdateProduct,
+	disableProduct
 }

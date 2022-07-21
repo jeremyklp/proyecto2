@@ -1,4 +1,4 @@
-const { db, DataTypes } = require('../Utils/database.util');
+ const { db, DataTypes } = require('../Utils/database.util');
 
 
 const Users = db.define('user', {

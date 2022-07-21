@@ -44,6 +44,11 @@ const Purchase = catchAsync(async (req, res, next) => {
 
 	res.status(200).json({
 		status: 'success',
+		data: { cartPurchases },
+	});
+//revisar respuesta
+	res.status(200).json({
+		status: 'success',
 		data: { purchase },
 	});
 });
@@ -73,5 +78,8 @@ const deleteProductCart = catchAsync(async (req, res, next) => {
 //-------------------------------------------------------------------//
 
 module.exports = {
-
-}
+	AddProduct,
+	Purchase,
+	updateCart,
+	deleteProductCart
+};
