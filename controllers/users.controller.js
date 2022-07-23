@@ -20,7 +20,7 @@ const getAllProducts = catchAsync(async (req, res, next) => {
 		where: { status: 'active' }
 		
 	});
-
+// taer el modelo que el usuario a creado del modelo product traer el userId
 	res.status(200).json({
 		status: 'success',
 		data: { users },
