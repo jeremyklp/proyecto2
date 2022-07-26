@@ -1,23 +1,32 @@
 const express = require('express');
 
 const {globalErrorHandler} = require('./controllers/error.controller');
-
+const helmet = require('helmet')
 const {AppError} = require('./Utils/app.error');
+const compression =require('compression')
+const morgan = require('morgan')
 
 const app = express();
 
+// routes
+const {userRouter} = require('./Routes/users.route')
+const {productRouter} = require('./Routes/products.route')
+const {cartRouter} = require('./Routes/cart.routes')
+
 // Enable incoming JSON data
+if (process.env.NODE_ENV==="develoment"){app.use(morgan('dev'))}
+else{app.use(morgan('combined'))}
+
 app.use(express.json());
-
-
+app.use(compression());
+app.use(helmet());
 //Endpoints
-/*
-app.use('/api/v1/restaurants',restaurantRouter);
-app.use('/api/v1/meals',mealRoute);
-app.use('/api/v1/orders',orderRoute);
+
+app.use('/api/v1/products',productRouter);
+app.use('/api/v1/cart',cartRouter);
 app.use('/api/v1/users',userRouter);
-*/
-app.use('/');
+
+
 
 app.all('*', (req, res, next) => {
     next(
