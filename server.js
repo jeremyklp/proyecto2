@@ -19,6 +19,7 @@ db
 	.then(() => console.log('Database authenticated'))
 	.catch(err => console.log(err));
 
+<<<<<<< HEAD
 
 <<<<<<< HEAD
 Users.hasOne(Orders, {foreignkey: 'carId'});
@@ -48,6 +49,8 @@ ProductsInCart.belongsTo(Carts);
 =======
 >>>>>>> jorge
 
+=======
+>>>>>>> jorge
 // Database synced with models' relations  
 db
 	.sync()

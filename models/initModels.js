@@ -8,9 +8,6 @@ const {ProductImgs} = require('./models/productImgs.model');
 
 const initModels = () => {
 //Unit models relations
-Users.hasMany(Orders, {foreignkey: 'userId'});
-Orders.belongsTo(Users);
-
 Users.hasOne(Orders, {foreignkey: 'carId'});
 Orders.belongsTo(Users);
 
@@ -20,10 +17,10 @@ Products.belongsTo(Users);
 Users.hasOne(Carts, {foreignkey: 'userId'});
 Carts.belongsTo(Users);
 
-Orders.cartId.hasOne(Carts, {foreignkey: 'id'});
+Orders.hasOne(Carts, {foreignkey: 'id'});
 Carts.belongsTo(Orders);
 
-Products.categoryId.hasOne(Categories, {foreignkey: 'id'});
+Products.hasOne(Categories, {foreignkey: 'id'});
 Categories.belongsTo(Products);
 
 Products.hasMany(ProductImgs, {foreignkey: 'productId'});
