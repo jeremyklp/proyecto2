@@ -19,9 +19,6 @@ db
 	.then(() => console.log('Database authenticated'))
 	.catch(err => console.log(err));
 
-<<<<<<< HEAD
-
-<<<<<<< HEAD
 Users.hasOne(Orders, {foreignkey: 'carId'});
 Orders.belongsTo(Users);
 
@@ -46,11 +43,8 @@ ProductsInCart.belongsTo(Products);
 Carts.hasMany(ProductsInCart, {foreignkey: 'cartId'});
 ProductsInCart.belongsTo(Carts);
 //revisar las relaciones
-=======
->>>>>>> jorge
 
-=======
->>>>>>> jorge
+
 // Database synced with models' relations  
 db
 	.sync()
