@@ -1,19 +1,16 @@
 const express = require('express');
 const helmet = require('helmet')
-const compression = require('compresion');
+const compression = require('compression');
 
 
-//Routes
-const {cartRouter}= require('./Routes/cart.routes');
-const {productRouter}= require('./Routes/products.route');
-const {userRouter}= require('./Routes/users.route');
+
 
 //GLOBAL ERROR
 const {globalErrorHandler} = require('./controllers/error.controller');
 
 //utils
 const {AppError} = require('./Utils/app.error');
-const compression =require('compression')
+
 const morgan = require('morgan')
 
 //Init express app
@@ -47,7 +44,7 @@ app.use(compression());
 if (process.env.NODE_ENV === 'development') app.use(morgan('dev'));
 else app.use(morgan('combined'));
 
-app.use('/');
+//app.use('/');
 
 app.all('*', (req, res, next) => {
     next(

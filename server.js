@@ -35,10 +35,10 @@ Products.belongsTo(Users);
 Users.hasOne(Carts, {foreignkey: 'userId'});
 Carts.belongsTo(Users);
 
-Orders.cartId.hasOne(Carts, {foreignkey: 'id'});
+Orders.hasOne(Carts, {foreignkey: 'id'});
 Carts.belongsTo(Orders);
 
-Products.categoryId.hasOne(Categories, {foreignkey: 'id'});
+Products.hasOne(Categories, {foreignkey: 'id'});
 Categories.belongsTo(Products);
 
 Products.hasMany(ProductImgs, {foreignkey: 'productId'});
