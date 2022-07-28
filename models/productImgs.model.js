@@ -8,8 +8,8 @@ const ProductImgs = db.define('productImg', {
 		autoIncrement: true,
 		allowNull: false,
 	},
-   imgId: {
-		type: DataTypes.INTEGER,
+    imgUrl: {
+		type: DataTypes.STRING,
 		allowNull: false,
 	},
     productId: {

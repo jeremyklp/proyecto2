@@ -1,4 +1,5 @@
 const express = require('express');
+const {upload} = require('../Utils/upload')
 
 // Controllers
 const {
@@ -26,7 +27,7 @@ const productRouter = express.Router();
 productRouter.use(protectSession)
 
 productRouter.post('/categories', createCategory);//protejerlos
-productRouter.post('/', createValidatorProduct, createUserValidators, createProduct);//protejerlos
+productRouter.post('/', createValidatorProduct, createUserValidators, (upload.array(), createProduct));//protejerlos
 
 productRouter.get('/', getAllProducts); 
 productRouter.get('/:id', getProductById);

@@ -1,13 +1,9 @@
 const { app } = require('./app');
 
+const { initModels } = require('./models/initModels')
+
 //Models
-const {Users} = require('./models/users.model');
-const {Orders} = require('./models/orders.model');
-const {Products} = require('./models/products.model');
-const {Carts} = require('./models/carts.model');
-const {Categories} = require('./models/categories.model');
-const {ProductsInCart} = require('./models/productsInCart.model');
-const {ProductImgs} = require('./models/productImgs.model');
+
 //utils
 const { db } = require('./Utils/database.util');
 
@@ -15,17 +11,16 @@ const { db } = require('./Utils/database.util');
 const dotenv = require('dotenv');
 
 dotenv.config({ path: './config.env' });
-
+//Relations 
+initModels();
 // Database authenticated
 db
 	.authenticate()
 	.then(() => console.log('Database authenticated'))
 	.catch(err => console.log(err));
 
-//Unit models relations
-Users.hasMany(Orders, {foreignkey: 'userId'});
-Orders.belongsTo(Users);
 
+<<<<<<< HEAD
 Users.hasOne(Orders, {foreignkey: 'carId'});
 Orders.belongsTo(Users);
 
@@ -50,6 +45,8 @@ ProductsInCart.belongsTo(Products);
 Carts.hasMany(ProductsInCart, {foreignkey: 'cartId'});
 ProductsInCart.belongsTo(Carts);
 //revisar las relaciones
+=======
+>>>>>>> jorge
 
 // Database synced with models' relations  
 db
