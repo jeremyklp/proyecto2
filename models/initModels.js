@@ -1,10 +1,10 @@
-const {Users} = require('./models/users.model');
-const {Orders} = require('./models/orders.model');
-const {Products} = require('./models/products.model');
-const {Carts} = require('./models/carts.model');
-const {Categories} = require('./models/categories.model');
-const {ProductsInCart} = require('./models/productsInCart.model');
-const {ProductImgs} = require('./models/productImgs.model');
+const {Users} = require('../models/users.model');
+const {Orders} = require('../models/orders.model');
+const {Products} = require('../models/products.model');
+const {Carts} = require('../models/carts.model');
+const {Categories} = require('../models/categories.model');
+const {ProductsInCart} = require('../models/productsInCart.model');
+const {ProductImgs} = require('../models/productImgs.model');
 
 const initModels = () => {
 //Unit models relations
