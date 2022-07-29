@@ -27,7 +27,7 @@ const productRouter = express.Router();
 productRouter.use(protectSession)
 
 productRouter.post('/categories', createCategory);//protejerlos
-productRouter.post('/', createValidatorProduct, createUserValidators, (upload.array(imgUrl), createProduct));//protejerlos
+productRouter.post('/', createValidatorProduct, createUserValidators, ( createProduct));//protejerlos
 
 productRouter.get('/', getAllProducts); 
 productRouter.get('/:id', getProductById);
